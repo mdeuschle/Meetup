@@ -14,6 +14,10 @@
 		A80B936620E5CF9A00A861B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80B936420E5CF9A00A861B3 /* LaunchScreen.storyboard */; };
 		A80B937120E5CF9A00A861B3 /* MeetupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80B937020E5CF9A00A861B3 /* MeetupTests.swift */; };
 		A80B937C20E5CF9A00A861B3 /* MeetupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80B937B20E5CF9A00A861B3 /* MeetupUITests.swift */; };
+		A80B938D20E5D56500A861B3 /* Meetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80B938C20E5D56500A861B3 /* Meetup.swift */; };
+		A80B938F20E5EFA100A861B3 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80B938E20E5EFA100A861B3 /* WebService.swift */; };
+		A80B939120E5F2DC00A861B3 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80B939020E5F2DC00A861B3 /* City.swift */; };
+		A810691820F2EBED000B6BF7 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810691720F2EBED000B6BF7 /* IntExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		A80B937720E5CF9A00A861B3 /* MeetupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A80B937B20E5CF9A00A861B3 /* MeetupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupUITests.swift; sourceTree = "<group>"; };
 		A80B937D20E5CF9A00A861B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A80B938C20E5D56500A861B3 /* Meetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meetup.swift; sourceTree = "<group>"; };
+		A80B938E20E5EFA100A861B3 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		A80B939020E5F2DC00A861B3 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		A810691720F2EBED000B6BF7 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +105,10 @@
 		A80B935A20E5CF9A00A861B3 /* Meetup */ = {
 			isa = PBXGroup;
 			children = (
+				A80B938B20E5D52A00A861B3 /* Model */,
+				A80B938A20E5D52400A861B3 /* View */,
+				A80B938920E5D51900A861B3 /* Controller */,
 				A80B935B20E5CF9A00A861B3 /* AppDelegate.swift */,
-				A80B935D20E5CF9A00A861B3 /* ViewController.swift */,
-				A80B935F20E5CF9A00A861B3 /* Main.storyboard */,
 				A80B936220E5CF9A00A861B3 /* Assets.xcassets */,
 				A80B936420E5CF9A00A861B3 /* LaunchScreen.storyboard */,
 				A80B936720E5CF9A00A861B3 /* Info.plist */,
@@ -123,6 +132,33 @@
 				A80B937D20E5CF9A00A861B3 /* Info.plist */,
 			);
 			path = MeetupUITests;
+			sourceTree = "<group>";
+		};
+		A80B938920E5D51900A861B3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A80B935D20E5CF9A00A861B3 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A80B938A20E5D52400A861B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A80B935F20E5CF9A00A861B3 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A80B938B20E5D52A00A861B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A80B938C20E5D56500A861B3 /* Meetup.swift */,
+				A80B938E20E5EFA100A861B3 /* WebService.swift */,
+				A80B939020E5F2DC00A861B3 /* City.swift */,
+				A810691720F2EBED000B6BF7 /* IntExtensions.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +297,10 @@
 			files = (
 				A80B935E20E5CF9A00A861B3 /* ViewController.swift in Sources */,
 				A80B935C20E5CF9A00A861B3 /* AppDelegate.swift in Sources */,
+				A80B938F20E5EFA100A861B3 /* WebService.swift in Sources */,
+				A810691820F2EBED000B6BF7 /* IntExtensions.swift in Sources */,
+				A80B938D20E5D56500A861B3 /* Meetup.swift in Sources */,
+				A80B939120E5F2DC00A861B3 /* City.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
