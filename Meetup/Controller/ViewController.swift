@@ -11,10 +11,12 @@ import UIKit
 class ViewController: UITableViewController {
 
     private var meetups = [Results]()
+    private var selectedCity: City!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadMeetups(for: .losAngeles)
+        selectedCity = .newYork
+        loadMeetups(for: selectedCity)
         let segmentControl = UISegmentedControl(items: [City.newYork.rawValue, City.losAngeles.rawValue])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(citySelected(_:)), for: .valueChanged)
@@ -23,7 +25,8 @@ class ViewController: UITableViewController {
     }
 
     @objc func citySelected(_ sender: UISegmentedControl) {
-        loadMeetups(for: sender.selectedSegmentIndex.selectedCity)
+        selectedCity = sender.selectedSegmentIndex.selectedCity
+        loadMeetups(for: selectedCity)
     }
 
     private func loadMeetups(for city: City) {
@@ -43,6 +46,7 @@ class ViewController: UITableViewController {
                     guard let meetup = meetup else { return }
                     guard let meetups = meetup.results else { return }
                     self.meetups = meetups
+                    self.meetups.sort { $0.name ?? "" < $1.name ?? "" }
                     activityIndicator.stopAnimating()
                     self.tableView.reloadData()
                 }
@@ -64,6 +68,14 @@ class ViewController: UITableViewController {
         cell.textLabel?.text = meetup.name
         cell.detailTextLabel?.text = meetup.venue?.name
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let meetup = meetups[indexPath.row]
+        let detailViewController = DetailViewController()
+        detailViewController.results = meetup
+        detailViewController.city = selectedCity
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 
