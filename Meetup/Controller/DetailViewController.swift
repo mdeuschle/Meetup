@@ -8,27 +8,49 @@
 
 import UIKit
 
-class DetailViewController: UITableViewController {
+class DetailViewController: UIViewController {
 
     var results: Results!
     var city: City!
-        
+
+    @IBOutlet private weak var mainLabel: UILabel!
+    @IBOutlet private weak var eventUrlButton: UIButton!
+    @IBOutlet private weak var eventImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configView()
+        configURLButton()
+    }
+
+    private func configView() {
+        mainLabel.text = results.name
         title = city.rawValue
+        guard let url = results.photo_url else { return }
+        getDataFromUrl(url: url) { data, _, error in
+            if data != nil && error == nil {
+                DispatchQueue.main.async {
+                    self.eventImage.image = UIImage(data: data!)
+                }
+            }
+        }
     }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    private func configURLButton() {
+        eventUrlButton.setTitle("Event Website", for: .normal)
+        eventUrlButton.addTarget(self,
+                                 action: #selector(openURL),
+                                 for: .touchUpInside)
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+    @objc private func openURL() {
+        guard let url = results.event_url else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        return cell
+    private func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            completion(data, response, error)
+            }.resume()
     }
-    
 }

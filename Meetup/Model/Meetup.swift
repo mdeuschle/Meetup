@@ -11,8 +11,11 @@ import Foundation
 struct Results: Codable {
     let name: String?
     let venue: Venue?
+    let event_url: URL?
+    let photo_url: URL?
     struct Venue: Codable {
         let name: String?
+        let address_1: String?
     }
 }
 
